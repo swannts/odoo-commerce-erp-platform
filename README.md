@@ -10,21 +10,22 @@ This is a development starter, not a production deployment. It runs Odoo 19 with
 
 1. Install Docker Engine with the Docker Compose plugin.
 2. Copy `.env.example` to `.env` and replace the local database password.
-3. Change `admin_passwd` in `config/odoo.conf` to a local master password, and set `db_password` there to the same database password as in `.env`.
+3. Change `admin_passwd` in `config/odoo.conf` to a local master password.
 4. Start the services:
 
    ```sh
    docker compose up -d
    ```
 
-5. Open [http://localhost:8069](http://localhost:8069), create a development database, then install the Odoo applications needed for the first milestone (Website, eCommerce, Sales, Inventory, Purchase, and Accounting).
+5. Open [http://localhost:8069](http://localhost:8069) and create a development database. Use the `admin_passwd` value from `config/odoo.conf` when the database manager asks for the master password, and set a unique administrator login password.
+6. In Apps, update the app list if needed, then install **Commerce ERP Starter**. It installs the standard Odoo Website/eCommerce, Sales, Inventory, Purchase, and Accounting apps together.
 
 Stop the services with `docker compose down`. Persistent database and Odoo files remain in Docker volumes. To erase local development data, remove those volumes explicitly with `docker compose down --volumes`.
 
 ## Repository layout
 
 ```text
-addons/              Custom Odoo addons (one directory per addon)
+addons/commerce_erp/ Custom app bundle for the standard commerce and ERP stack
 config/odoo.conf     Local Odoo server configuration
 docker-compose.yml   Local Odoo and PostgreSQL services
 ```
