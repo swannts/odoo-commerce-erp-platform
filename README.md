@@ -6,6 +6,8 @@ An Odoo-based project for an online store connected to core business operations.
 
 This is a development starter, not a production deployment. It runs Odoo 19 with PostgreSQL 16 and provides a mount point for custom addons. The Odoo Website/eCommerce and ERP applications are installed and configured from the Odoo database; they are not custom-built in this repository yet.
 
+See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the phased scope, decisions, and acceptance criteria for the full system.
+
 ## Run locally
 
 1. Install Docker Engine with the Docker Compose plugin.
