@@ -4,6 +4,8 @@
 
 Deliver an online store connected to the business processes behind it: product and price management, customer orders, purchasing, inventory, fulfillment, payments, invoicing, and financial reporting. Odoo is the system of record. Use standard Odoo apps where they meet the approved process; add custom addons only for confirmed gaps.
 
+Implementation and review expectations are defined in [ENGINEERING_STANDARDS.md](ENGINEERING_STANDARDS.md), including Odoo ORM/addon practices, integration security, localization ownership, performance review, upgrade support, and technical documentation.
+
 ## Current baseline
 
 - The repository has a local Odoo 20.0 and PostgreSQL 16 Docker setup. The Odoo image is pinned to the official `20.0-20261015` release tag.
@@ -30,7 +32,7 @@ Resolve these decisions with the business owner, operations lead, accountant, an
 
 ## Phase 1 — Choose the platform and deployment design
 
-- Compare the required apps and integrations against the selected Odoo edition and version.
+- Compare the required apps and integrations against the selected Odoo edition and version, including availability of the chosen external API.
 - Choose Odoo Online, Odoo.sh, or self-hosted deployment based on custom-addon, control, and operations needs.
 - Keep separate development, staging, and production environments; pin Odoo and PostgreSQL versions.
 - Define secrets handling, access control, HTTPS/proxy, email delivery, backups, restore objectives, logging, monitoring, and upgrade policy.
@@ -68,6 +70,7 @@ Add only the required capabilities, each as a scoped addon or provider integrati
 - Manufacturing/BOMs, quality, maintenance, procurement approvals, multi-warehouse, or multi-company operations
 - HR, payroll, projects, or other enterprise areas if they are part of the approved scope
 - External APIs, imports, and webhooks with authentication, idempotency, retries, monitoring, and reconciliation
+- REST APIs and web services for selected enterprise applications, implemented only after system-of-record ownership, API access, and integration contracts are approved
 
 **Exit criteria:** each integration has documented failure/retry behavior, a reconciliation process, and a support owner.
 

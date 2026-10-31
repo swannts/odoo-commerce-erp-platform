@@ -7,6 +7,7 @@ An Odoo-based project for an online store connected to core business operations.
 This is a development starter, not a production deployment. It runs Odoo 20.0 with PostgreSQL 16 and provides a mount point for custom addons. The local `commerce_dev` database is initialized with the standard Odoo Website/eCommerce and ERP application bundle; business-specific workflows are not custom-built in this repository yet.
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the phased scope, decisions, and acceptance criteria for the full system.
+See [ENGINEERING_STANDARDS.md](ENGINEERING_STANDARDS.md) for implementation, integration, localization, security, upgrade, and documentation standards.
 
 ## Run locally
 
