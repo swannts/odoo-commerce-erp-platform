@@ -10,3 +10,4 @@ __pycache__/
 *.swo
 odoo-data/
 postgres-data/
+backups/

@@ -31,6 +31,8 @@ See [ENGINEERING_STANDARDS.md](ENGINEERING_STANDARDS.md) for implementation, int
 
 Stop the services with `docker compose down`. Persistent database and Odoo files remain in Docker volumes. To erase local development data, remove those volumes explicitly with `docker compose down --volumes`.
 
+Create a local database and filestore backup with `./scripts/backup-dev-db.sh`. Backups are stored in the ignored `backups/` directory with owner-only file permissions. Copy backups to a separately protected storage location; the local script does not provide off-site retention or disaster recovery.
+
 ## Repository layout
 
 ```text

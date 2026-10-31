@@ -45,6 +45,7 @@ These standards turn the project requirements into implementation rules for Odoo
 - Pin the Odoo release, PostgreSQL major version, and external addon revisions per environment. Promote the same reviewed source revision through development, staging, and production.
 - Before an Odoo major upgrade, inventory addon compatibility, rehearse the database and filestore migration on a restored copy, reconcile key business records, and retain a tested rollback backup. Custom migration scripts must be versioned with their addon.
 - Keep database and filestore backups coordinated. Define recovery point/time objectives, restore procedures, log/metric alerts, incident ownership, and maintenance windows before production.
+- Keep development backup artifacts out of Git. Production backups need a separately secured, off-site destination, retention policy, encryption at rest, restore drills, and access auditing.
 - Document environment configuration, secrets rotation, deploy and rollback steps, integration recovery, data repair, and common support procedures.
 
 ## Team delivery and documentation
