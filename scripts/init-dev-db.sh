@@ -60,7 +60,9 @@ fi
 
 module_state="$(docker compose exec -T db psql -U "$POSTGRES_USER" -d "$database" -tAc \
   "SELECT state FROM ir_module_module WHERE name = 'commerce_erp'")"
-if [[ "$module_state" != "installed" ]]; then
+if [[ "$module_state" == "installed" ]]; then
+  ./scripts/upgrade-dev-addons.sh "$database" commerce_erp commerce_storefront
+else
   docker compose exec -T odoo odoo module install commerce_erp \
     --config=/etc/odoo/odoo.conf \
     --database "$database"

@@ -9,7 +9,7 @@ Implementation and review expectations are defined in [ENGINEERING_STANDARDS.md]
 ## Current baseline
 
 - The repository has a local Odoo 20.0 and PostgreSQL 16 Docker setup. The Odoo image is pinned to the official `20.0-20261015` release tag.
-- `addons/commerce_erp` is an installable bundle for standard Website/eCommerce, Sales, Inventory, Purchase, and Accounting apps. It does not yet implement custom workflows.
+- `addons/commerce_erp` installs the standard Website/eCommerce, Sales, Inventory, Purchase, and Accounting apps. `addons/commerce_storefront` supplies the first custom customer-facing homepage; business-specific workflows are still open.
 - The local `commerce_dev` database is a blank development database without demo data. No business-specific localization, product/customer data, payment provider, or production hosting has been configured.
 - The repository is development-only. It is not ready for public traffic or production data.
 - The local Odoo image is Community. The final Community versus Enterprise edition decision remains open; do not create a durable business database until it is resolved.
@@ -52,6 +52,7 @@ Resolve these decisions with the business owner, operations lead, accountant, an
 
 ## Phase 3 — Ecommerce first release
 
+- A first responsive, company-name-aware storefront homepage now links into Odoo's native shop and contact flows. Catalog data, brand content, and checkout configuration remain to be supplied and approved.
 - Build the storefront theme and information architecture; configure product catalog, categories, variants, search, pricing, images, and content.
 - Configure customer account and guest flows, checkout fields, address handling, taxes, delivery choices, terms, confirmation emails, and customer order portal.
 - Connect an approved payment provider using its supported hosted/tokenized flow; configure payment status, capture, refund, and reconciliation behavior.

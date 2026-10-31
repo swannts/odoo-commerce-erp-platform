@@ -4,7 +4,7 @@ An Odoo-based project for an online store connected to core business operations.
 
 ## Current status
 
-This is a development starter, not a production deployment. It runs Odoo 20.0 with PostgreSQL 16 and provides a mount point for custom addons. The local `commerce_dev` database is initialized with the standard Odoo Website/eCommerce and ERP application bundle; business-specific workflows are not custom-built in this repository yet.
+This is a development build, not a production deployment. It runs Odoo 20.0 with PostgreSQL 16. The local `commerce_dev` database includes the standard Odoo ecommerce/ERP apps and a responsive, company-name-aware storefront homepage that links to the native shop. Product data, brand content, business workflows, localization, and integrations still need your business requirements.
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the phased scope, decisions, and acceptance criteria for the full system.
 See [ENGINEERING_STANDARDS.md](ENGINEERING_STANDARDS.md) for implementation, integration, localization, security, upgrade, and documentation standards.
@@ -26,7 +26,8 @@ See [ENGINEERING_STANDARDS.md](ENGINEERING_STANDARDS.md) for implementation, int
    ./scripts/init-dev-db.sh
    ```
 
-   This initializes the database without demo data and installs **Commerce ERP Starter**, which bundles Website/eCommerce, Sales, Inventory, Purchase, and Accounting. Set `ODOO_COUNTRY` in `.env` before running the script if you want Odoo to initialize the main company with a country. Otherwise, choose the country and accounting localization with the business owner before configuring taxes or posting real transactions.
+   This initializes the database without demo data and installs or upgrades **Commerce ERP Starter**, which bundles Website/eCommerce, Sales, Inventory, Purchase, Accounting, and the project storefront homepage. Set `ODOO_COUNTRY` in `.env` before running the script if you want Odoo to initialize the main company with a country. Otherwise, choose the country and accounting localization with the business owner before configuring taxes or posting real transactions.
+   For later changes to custom addons, run `./scripts/upgrade-dev-addons.sh` to apply versioned addon upgrades while the local Odoo web/cron process is stopped.
 6. Open [http://localhost:8069](http://localhost:8069) and sign in with `ODOO_ADMIN_LOGIN` and `ODOO_ADMIN_PASSWORD` from `.env`. The database-manager master password is `admin_passwd` from `config/odoo.conf`; change it before using the database manager.
 
 Stop the services with `docker compose down`. Persistent database and Odoo files remain in Docker volumes. To erase local development data, remove those volumes explicitly with `docker compose down --volumes`.

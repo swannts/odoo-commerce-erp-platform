@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template
+        id="homepage"
+        name="Commerce Storefront Homepage"
+        inherit_id="website.homepage"
+        priority="50"
+    >
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <main id="wrap" class="oe_structure o_commerce_storefront">
+                <section class="o_commerce_storefront_hero" aria-labelledby="storefront-title">
+                    <div class="container">
+                        <div class="row align-items-center g-5">
+                            <div class="col-12 col-lg-7">
+                                <p class="o_commerce_storefront_eyebrow">ONLINE STORE</p>
+                                <h1 id="storefront-title">
+                                    Welcome to
+                                    <span t-out="website.company_id.name or 'your store'"/>.
+                                </h1>
+                                <p class="o_commerce_storefront_lead">
+                                    Browse the catalog, compare product details, and place your order online.
+                                </p>
+                                <div class="d-flex flex-wrap gap-3 mt-4">
+                                    <a href="/shop" class="btn btn-primary btn-lg o_commerce_storefront_primary">
+                                        Browse the catalog
+                                    </a>
+                                    <a href="/contactus" class="btn btn-lg o_commerce_storefront_secondary">
+                                        Contact us
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5">
+                                <div class="o_commerce_storefront_visual" aria-hidden="true">
+                                    <div class="o_commerce_storefront_visual_header">
+                                        <span>THE CATALOG</span>
+                                        <span class="o_commerce_storefront_visual_indicator"/>
+                                    </div>
+                                    <div class="o_commerce_storefront_visual_art">
+                                        <div class="o_commerce_storefront_visual_ring"/>
+                                        <div class="o_commerce_storefront_visual_tile o_tile_one"/>
+                                        <div class="o_commerce_storefront_visual_tile o_tile_two"/>
+                                        <div class="o_commerce_storefront_visual_tile o_tile_three"/>
+                                    </div>
+                                    <div class="o_commerce_storefront_visual_footer">
+                                        <span>Find what you need</span>
+                                        <span>01 / 03</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="o_commerce_storefront_steps" aria-labelledby="storefront-steps-title">
+                    <div class="container">
+                        <div class="row align-items-end mb-4 mb-lg-5">
+                            <div class="col-12 col-lg-7">
+                                <p class="o_commerce_storefront_eyebrow">A SIMPLE WAY TO SHOP</p>
+                                <h2 id="storefront-steps-title">From browsing to order, all in one place.</h2>
+                            </div>
+                            <div class="col-12 col-lg-5">
+                                <p class="mb-0 o_commerce_storefront_steps_intro">
+                                    Explore available products, review the details, and follow your order from your account.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row g-3 g-lg-4">
+                            <div class="col-12 col-md-4">
+                                <article class="o_commerce_storefront_step h-100">
+                                    <span class="o_commerce_storefront_step_number">01</span>
+                                    <h3>Browse</h3>
+                                    <p>Find products in the online catalog.</p>
+                                </article>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <article class="o_commerce_storefront_step h-100">
+                                    <span class="o_commerce_storefront_step_number">02</span>
+                                    <h3>Choose</h3>
+                                    <p>Review product information and available options.</p>
+                                </article>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <article class="o_commerce_storefront_step h-100">
+                                    <span class="o_commerce_storefront_step_number">03</span>
+                                    <h3>Order</h3>
+                                    <p>Check out online and review your order from your account.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="o_commerce_storefront_footer_cta" aria-labelledby="storefront-cta-title">
+                    <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-4">
+                        <div>
+                            <p class="o_commerce_storefront_eyebrow">READY WHEN YOU ARE</p>
+                            <h2 id="storefront-cta-title">Explore the catalog.</h2>
+                        </div>
+                        <a href="/shop" class="btn btn-primary btn-lg o_commerce_storefront_primary">
+                            Shop products
+                        </a>
+                    </div>
+                </section>
+            </main>
+        </xpath>
+    </template>
+</odoo>
