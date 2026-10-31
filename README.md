@@ -4,14 +4,14 @@ An Odoo-based project for an online store connected to core business operations.
 
 ## Current status
 
-This is a development starter, not a production deployment. It runs Odoo 19 with PostgreSQL 16 and provides a mount point for custom addons. The Odoo Website/eCommerce and ERP applications are installed and configured from the Odoo database; they are not custom-built in this repository yet.
+This is a development starter, not a production deployment. It runs Odoo 20.0 with PostgreSQL 16 and provides a mount point for custom addons. The local `commerce_dev` database is initialized with the standard Odoo Website/eCommerce and ERP application bundle; business-specific workflows are not custom-built in this repository yet.
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the phased scope, decisions, and acceptance criteria for the full system.
 
 ## Run locally
 
 1. Install Docker Engine with the Docker Compose plugin.
-2. Copy `.env.example` to `.env` and replace the local database password.
+2. Copy `.env.example` to `.env` and replace the local database and administrator passwords.
 3. Change `admin_passwd` in `config/odoo.conf` to a local master password.
 4. Start the services:
 
@@ -19,8 +19,14 @@ See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the phased scope, decisions, and acce
    docker compose up -d
    ```
 
-5. Open [http://localhost:8069](http://localhost:8069) and create a development database. Use the `admin_passwd` value from `config/odoo.conf` when the database manager asks for the master password, and set a unique administrator login password.
-6. In Apps, update the app list if needed, then install **Commerce ERP Starter**. It installs the standard Odoo Website/eCommerce, Sales, Inventory, Purchase, and Accounting apps together.
+5. Create an empty development database and install the starter app bundle:
+
+   ```sh
+   ./scripts/init-dev-db.sh
+   ```
+
+   This initializes the database without demo data and installs **Commerce ERP Starter**, which bundles Website/eCommerce, Sales, Inventory, Purchase, and Accounting. Set `ODOO_COUNTRY` in `.env` before running the script if you want Odoo to initialize the main company with a country. Otherwise, choose the country and accounting localization with the business owner before configuring taxes or posting real transactions.
+6. Open [http://localhost:8069](http://localhost:8069) and sign in with `ODOO_ADMIN_LOGIN` and `ODOO_ADMIN_PASSWORD` from `.env`. The database-manager master password is `admin_passwd` from `config/odoo.conf`; change it before using the database manager.
 
 Stop the services with `docker compose down`. Persistent database and Odoo files remain in Docker volumes. To erase local development data, remove those volumes explicitly with `docker compose down --volumes`.
 

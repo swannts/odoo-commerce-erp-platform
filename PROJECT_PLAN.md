@@ -6,12 +6,13 @@ Deliver an online store connected to the business processes behind it: product a
 
 ## Current baseline
 
-- The repository has a local Odoo 19.0 and PostgreSQL 16 Docker setup.
+- The repository has a local Odoo 20.0 and PostgreSQL 16 Docker setup. The Odoo image is pinned to the official `20.0-20261015` release tag.
 - `addons/commerce_erp` is an installable bundle for standard Website/eCommerce, Sales, Inventory, Purchase, and Accounting apps. It does not yet implement custom workflows.
-- No business database, localization, product/customer data, payment provider, or production hosting has been configured.
+- The local `commerce_dev` database is a blank development database without demo data. No business-specific localization, product/customer data, payment provider, or production hosting has been configured.
 - The repository is development-only. It is not ready for public traffic or production data.
+- The local Odoo image is Community. The final Community versus Enterprise edition decision remains open; do not create a durable business database until it is resolved.
 
-The repository currently pins Odoo 19.0, while the official documentation also has a 20.0 release. Select and pin the target version and edition before building custom behavior or importing real data. A version decision made after database migration can add upgrade work. See the [Odoo 19 ecommerce guide](https://www.odoo.com/documentation/19.0/applications/websites/ecommerce.html) and the [Odoo 20 documentation](https://www.odoo.com/documentation/20.0/).
+Odoo 20.0 is the selected development baseline because it is a supported major release and the business database has not been created. Odoo 20 requires PostgreSQL 16 or newer, so the PostgreSQL 16 service meets the documented minimum. The production edition and hosting choice remain open. See [Odoo 20 supported versions](https://www.odoo.com/documentation/20.0/administration/supported_versions.html) and [installation requirements](https://www.odoo.com/documentation/20.0/administration/on_premise/source.html).
 
 ## Phase 0 — Agree the business scope
 
@@ -95,8 +96,8 @@ Build in vertical slices. The first slice should prove one product can be purcha
 
 ## Immediate next steps
 
-1. Decide the Odoo version/edition and hosting direction before creating a durable business database.
+1. Confirm the Odoo edition and hosting direction before creating a durable business database.
 2. Confirm the industry, products, B2B/B2C needs, countries, warehouses, channels, and first-release must-haves.
 3. Turn those answers into a prioritized MVP backlog and workflow acceptance criteria.
-4. Update the local Odoo baseline and install the chosen app stack on a clean development database.
+4. Confirm company country, accounting localization, and product/customer model before configuring master data.
 5. Implement the first end-to-end order-to-cash and procure-to-stock slice, then validate it with representative users and data.

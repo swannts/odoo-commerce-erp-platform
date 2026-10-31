@@ -1,7 +1,8 @@
 {
     "name": "Commerce ERP Starter",
     "summary": "Install the connected ecommerce and business operations app stack",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
+    "author": "SwannTS",
     "category": "Sales",
     "license": "LGPL-3",
     "depends": [
